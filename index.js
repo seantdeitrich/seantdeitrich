@@ -46,8 +46,6 @@ const renderer = new THREE.WebGLRenderer(
 });
 
 
-
-
 renderer.alpha = true; //Allow transparency 
 renderer.setClearColor(0x000000, 0); //Allow transparency
 renderer.setSize(sizes.width, sizes.height);
