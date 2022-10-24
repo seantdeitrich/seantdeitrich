@@ -3,9 +3,8 @@
 
 ## About this Repository:
 
-This repository hosts my personal website, online resume, and a link to my Dungeons and Dragons campaign (when it's active).
-It is currently under development as I am exploring ThreeJS and Blender. It will certainly be imperfect and full of mistakes, but I want to give an accurate reflection of my journey in the learning process.
-
+This repository hosts my personal website, online resume, and a link to my online DnD campaign (when it's active).
+The website is currently under development as I am exploring ThreeJS and Blender. It will certainly be imperfect and full of mistakes, but I want to give an accurate reflection of my journey in the learning and creative process.
 
 ## About Me:
 
