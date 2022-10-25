@@ -12,13 +12,15 @@
 		<!-- Custom CSS-->
 		<style>
             html,body{ margin: 0; } /*Removing default spacing on webpage*/
-
+			canvas:focus
+			{
+				outline: none /*Removing the blue outline that appears when interacting with the scene*/
+			}
 			.flex-around /*Flex box with space around justification*/
 			{
 				display: flex;
 				justify-content: space-around;
 			}
-
 			.testing
 			{
 				position: absolute;
