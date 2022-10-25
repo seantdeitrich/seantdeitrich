@@ -18,11 +18,13 @@
 				display: flex;
 				justify-content: space-around;
 			}
+
 			.testing
 			{
-
 				position: absolute;
+				left: 50%;
 				bottom: 0;
+				transform: translateX(-50%);
 				color: white;
 				text-align: center;
 				margin: auto;
@@ -39,13 +41,15 @@
 		</style>
 	</head>
 	<body>
-		<section class="testing">
-			<h1 class="name">Sean Deitrich</h1>
-			<h1>This website is currently under development</h1>
-			<h3>I am experimenting with ThreeJS and Blender, and invite you to look at the README file in my <a href="https://github.com/seantdeitrich/seantdeitrich.github.io">Github Repository</a></h3>
-		</section>
-		<canvas class="webgl"></canvas> <!-- 3D Canvas -->
 
+		<canvas class="webgl"></canvas> <!-- 3D Canvas -->
+		<main>
+			<section class="testing">
+				<h1 class="name">Sean Deitrich</h1>
+				<h1>This website is currently under development</h1>
+				<h3>I am experimenting with ThreeJS and Blender, and invite you to look at the README file in my <a href="https://github.com/seantdeitrich/seantdeitrich.github.io">Github Repository</a></h3>
+			</section>
+		</main>
 
 
         <script type="module" src="index.js"></script> <!-- Custom JS for 3D Model -->
