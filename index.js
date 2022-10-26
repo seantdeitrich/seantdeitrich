@@ -52,13 +52,14 @@ const renderer = new THREE.WebGLRenderer(
 //Create "stars" as white spheres and add to canvas at random position
 //Every Sphere can use the same geometry
 const geometry = new THREE.SphereGeometry(0.1, 32, 16); //Create spheres with a radius of 0.1, 32 width segments and 16 height segments                                        //Note that more width/height segments increase the total amount of triangles in the geometry
-for(let i = 0; i<100; i++) //For loop to create 100 stars
+for(let i = 0; i<1000; i++) //For loop to create 100 stars
 {   
     //Every sphere needs a different material for rainbow stars
     const material = new THREE.MeshBasicMaterial(); //If they were all the same color, they could just use the same material
     material.color = new THREE.Color(Math.random(), Math.random(), Math.random()); //Generate random RGB Values and set it as the color of the material
     const star = new THREE.Mesh(geometry, material); //Create the star
     //Setting star positions
+    //Note: Stars can currently appear in front of the camera
     star.position.x = Math.random()*100-50; //Generate random X Position between -50 and 50
     star.position.y = Math.random()*100-50; //Generate random Y position between -50 and 50
     star.position.z = Math.random()*100-50; //Generate random Z position between -50 and 50
