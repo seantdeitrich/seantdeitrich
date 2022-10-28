@@ -38,10 +38,16 @@ camera.position.set(0,2,3); //Moving camera away from the origin
 
 //Creating the ambient and point lighting
 const light = new THREE.DirectionalLight(0xffffff, 1);
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
 light.position.set(2,2,5);
 scene.add(light);
 scene.add(ambientLight);
+
+//Creating a background for the scene
+const textureLoader = new THREE.TextureLoader();
+const bgTexture = textureLoader.load('images/space.jpg');
+scene.background = bgTexture;
+
 
 //Renderer Setup
 const renderer = new THREE.WebGLRenderer(
@@ -73,7 +79,6 @@ renderer.setClearColor(0x000000, 0);
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.shadowMap.enabled = true;
-renderer.gammaOutput = true; //Apparently this is outdated but the code doesn't work if it's not in here
 renderer.render(scene, camera); 
 
 //Add Orbital Controls to the camera -- Is there a better control option?
