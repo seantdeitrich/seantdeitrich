@@ -45,9 +45,11 @@ scene.add(ambientLight);
 
 //Creating a background for the scene
 const textureLoader = new THREE.TextureLoader();
+/*
+
 const bgTexture = textureLoader.load('images/space.jpg');
 scene.background = bgTexture;
-
+*/
 
 //Renderer Setup
 const renderer = new THREE.WebGLRenderer(
@@ -72,6 +74,14 @@ for(let i = 0; i<1000; i++) //For loop to create 100 stars
     scene.add(star); //Add the star to the scene
 }
 
+//Creating a Spherical Skybox rather than using a static background
+const skyGeometry = new THREE.SphereGeometry( 30, 50, 50 );
+const skyTexture = textureLoader.load('images/StarMap.png');
+const skyMat = new THREE.MeshBasicMaterial( { map: skyTexture} );
+skyMat.side = THREE.DoubleSide;
+const skyBox = new THREE.Mesh( skyGeometry, skyMat );
+scene.add( skyBox );
+//Image Credit: NASA/Goddard Space Flight Center Scientific Visualization Studio. Gaia DR2: ESA/Gaia/DPAC. Constellation figures based on those developed for the IAU by Alan MacRobert of Sky and Telescope magazine (Roger Sinnott and Rick Fienberg).
 
 //ThreeJS Boilerplate
 renderer.alpha = true; 
