@@ -57,10 +57,21 @@ const renderer = new THREE.WebGLRenderer(
     canvas: canvas
 });
 
+
+//Creating a Spherical Skybox rather than using a static background
+const skyRadius = 30
+const skyGeometry = new THREE.SphereGeometry( skyRadius, 50, 50 );
+const skyTexture = textureLoader.load('images/StarMap.png');
+const skyMat = new THREE.MeshBasicMaterial( { map: skyTexture} );
+skyMat.side = THREE.DoubleSide;
+const skyBox = new THREE.Mesh( skyGeometry, skyMat );
+scene.add( skyBox );
+//Image Credit: NASA/Goddard Space Flight Center Scientific Visualization Studio. Gaia DR2: ESA/Gaia/DPAC. Constellation figures based on those developed for the IAU by Alan MacRobert of Sky and Telescope magazine (Roger Sinnott and Rick Fienberg).
+
 //Create "stars" as white spheres and add to canvas at random position
 //Every Sphere can use the same geometry
 const geometry = new THREE.SphereGeometry(0.1, 32, 16); //Create spheres with a radius of 0.1, 32 width segments and 16 height segments                                        //Note that more width/height segments increase the total amount of triangles in the geometry
-for(let i = 0; i<1000; i++) //For loop to create 100 stars
+for(let i = 0; i<500; i++) //For loop to create 100 stars
 {   
     //Every sphere needs a different material for rainbow stars
     const material = new THREE.MeshBasicMaterial(); //If they were all the same color, they could just use the same material
@@ -68,20 +79,12 @@ for(let i = 0; i<1000; i++) //For loop to create 100 stars
     const star = new THREE.Mesh(geometry, material); //Create the star
     //Setting star positions
     //Note: Stars can currently appear in front of the camera
-    star.position.x = Math.random()*100-50; //Generate random X Position between -50 and 50
-    star.position.y = Math.random()*100-50; //Generate random Y position between -50 and 50
-    star.position.z = Math.random()*100-50; //Generate random Z position between -50 and 50
+    star.position.x = Math.random()*skyRadius*2-skyRadius; //Generate random X Position within the skySphere
+    star.position.y = Math.random()*skyRadius*2-skyRadius; //Generate random Y position within the skySphere
+    star.position.z = Math.random()*skyRadius*2-skyRadius; //Generate random Z position within the skySphere
     scene.add(star); //Add the star to the scene
 }
 
-//Creating a Spherical Skybox rather than using a static background
-const skyGeometry = new THREE.SphereGeometry( 30, 50, 50 );
-const skyTexture = textureLoader.load('images/StarMap.png');
-const skyMat = new THREE.MeshBasicMaterial( { map: skyTexture} );
-skyMat.side = THREE.DoubleSide;
-const skyBox = new THREE.Mesh( skyGeometry, skyMat );
-scene.add( skyBox );
-//Image Credit: NASA/Goddard Space Flight Center Scientific Visualization Studio. Gaia DR2: ESA/Gaia/DPAC. Constellation figures based on those developed for the IAU by Alan MacRobert of Sky and Telescope magazine (Roger Sinnott and Rick Fienberg).
 
 //ThreeJS Boilerplate
 renderer.alpha = true; 
@@ -93,6 +96,7 @@ renderer.render(scene, camera);
 
 //Add Orbital Controls to the camera -- Is there a better control option?
 const controls = new OrbitControls(camera, renderer.domElement);
+controls.maxDistance = skyRadius ; //Bounding controls within the radius of the skySphere 
 
 //Boilerplate Animate Code
 function animate()
