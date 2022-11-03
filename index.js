@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import {OrbitControls} from './three/examples/jsm/controls/OrbitControls.js';
 import {GLTFLoader} from './three/examples/jsm/loaders/GLTFLoader.js';
-const canvas = document.querySelector('.webgl'); //Selecting the canvas from the html
+const canvas = document.querySelector('.webgl'); //Selecting the canvas from the html based on the class
 const scene = new THREE.Scene(); //Creating a scene
 
 //Create a GLTF Loader so we can load the GLB file in
@@ -54,7 +54,8 @@ scene.background = bgTexture;
 //Renderer Setup
 const renderer = new THREE.WebGLRenderer(
 {
-    canvas: canvas
+    canvas: canvas, //Target the Canvas in the HTML (stored in the canvas const)
+    antialias: true //Enable Anti-Aliasing
 });
 
 
