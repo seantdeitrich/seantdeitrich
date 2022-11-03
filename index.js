@@ -1,6 +1,6 @@
-import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/build/three.module.js';
-import {OrbitControls} from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/controls/OrbitControls.js';
-import {GLTFLoader} from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/loaders/GLTFLoader.js';
+import * as THREE from 'three';
+import {OrbitControls} from './three/examples/jsm/controls/OrbitControls.js';
+import {GLTFLoader} from './three/examples/jsm/loaders/GLTFLoader.js';
 const canvas = document.querySelector('.webgl'); //Selecting the canvas from the html
 const scene = new THREE.Scene(); //Creating a scene
 
