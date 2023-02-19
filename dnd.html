@@ -2,8 +2,36 @@
 <html>
   <head>
     <meta http-equiv="refresh" content="0; url='http://73.88.110.45:30000'" />
+    <style>
+      @import url('https://fonts.cdnfonts.com/css/dragon-hunter');
+      body, html
+      {
+        background: #181818;
+      }
+      .message
+      {
+        position: absolute; 
+        top: 30%;
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+        font-family: 'DRAGON HUNTER', sans-serif;
+        font-size: 30px;
+        text-align: center;
+        color: white
+      }
+      .sub-message
+      {
+        position: absolute;
+        bottom: 0;
+        color: white;
+      }
+    </style>
   </head>
   <body>
-    <p>If Foundry VTT did not load automatically, please follow <a href="http://73.88.110.45:30000">this link</a>.</p>
+    
+    <p class="message">If Foundry VTT did not load automatically, please follow <a href="http://73.88.110.45:30000">this link</a>.
+      <p class="sub-message"> If the link still doesn't work, the server is offline. Contact Sean.</p>
+    </p>
   </body>
 </html>
